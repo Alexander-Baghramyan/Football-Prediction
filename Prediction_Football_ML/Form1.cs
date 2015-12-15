@@ -21,5 +21,17 @@ namespace Prediction_Football_ML
         {
             MessageBox.Show("Đồ án môn học: Nhập môn Công Nghệ Tri Thức và Máy Học\nNhóm sinh viên thực hiện:\n- Nguyễn Thành Long - 13520469\n- Nguyễn Duy Hùng - 13520...\n- Lê Trọng Đức - 13520...\n- Trần Văn Trí - 13520...\n- Trần Trung Hiếu - 13520...\n- Trần Văn Thiệt - 13520...\nGVHD: ThS. Nguyễn Đình Hiển", "Thông Tin Sản Phẩm");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 Main = new Form2();
+            Main.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
