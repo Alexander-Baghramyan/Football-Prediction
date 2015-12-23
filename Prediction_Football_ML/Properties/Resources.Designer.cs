@@ -63,9 +63,9 @@ namespace Prediction_Football_ML.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _27_11_11_39_421 {
+        internal static System.Drawing.Bitmap BG {
             get {
-                object obj = ResourceManager.GetObject("_27_11_11_39_421", resourceCulture);
+                object obj = ResourceManager.GetObject("BG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,59 @@ namespace Prediction_Football_ML.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pic {
+        internal static System.Drawing.Bitmap BG_1_2 {
             get {
-                object obj = ResourceManager.GetObject("pic", resourceCulture);
+                object obj = ResourceManager.GetObject("BG_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BG_1_4 {
+            get {
+                object obj = ResourceManager.GetObject("BG_1_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Du_Doan_Ti_So {
+            get {
+                object obj = ResourceManager.GetObject("Du_Doan_Ti_So", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HDSD {
+            get {
+                object obj = ResourceManager.GetObject("HDSD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Thoat {
+            get {
+                object obj = ResourceManager.GetObject("Thoat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TTSP {
+            get {
+                object obj = ResourceManager.GetObject("TTSP", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
