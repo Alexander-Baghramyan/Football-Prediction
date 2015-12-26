@@ -7,4 +7,3 @@ C:\Users\NTL\Documents\GitHub\Football-Prediction\Prediction_Football_ML\obj\Deb
 C:\Users\NTL\Documents\GitHub\Football-Prediction\Prediction_Football_ML\obj\Debug\Prediction_Football_ML.csproj.GenerateResource.Cache
 C:\Users\NTL\Documents\GitHub\Football-Prediction\Prediction_Football_ML\obj\Debug\Prediction_Football_ML.exe
 C:\Users\NTL\Documents\GitHub\Football-Prediction\Prediction_Football_ML\obj\Debug\Prediction_Football_ML.pdb
-C:\Users\NTL\Documents\GitHub\Football-Prediction\Prediction_Football_ML\obj\Debug\Prediction_Football_ML.csprojResolveAssemblyReference.cache
