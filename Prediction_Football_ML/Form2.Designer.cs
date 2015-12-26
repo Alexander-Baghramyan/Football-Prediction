@@ -49,6 +49,12 @@
             this.ePLDataSet = new Prediction_Football_ML.EPLDataSet();
             this.db_TableAdapter = new Prediction_Football_ML.EPLDataSetTableAdapters.db_TableAdapter();
             this.phongdodoinha = new System.Windows.Forms.ListBox();
+            this.phongdosannha = new System.Windows.Forms.ListBox();
+            this.phongdosankhach = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePLDataSet)).BeginInit();
@@ -125,15 +131,15 @@
             // 
             // phongdodoikhach
             // 
-            this.phongdodoikhach.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.phongdodoikhach.BackColor = System.Drawing.SystemColors.Window;
             this.phongdodoikhach.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.phongdodoikhach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phongdodoikhach.ForeColor = System.Drawing.Color.White;
             this.phongdodoikhach.FormattingEnabled = true;
             this.phongdodoikhach.ItemHeight = 20;
-            this.phongdodoikhach.Location = new System.Drawing.Point(376, 444);
+            this.phongdodoikhach.Location = new System.Drawing.Point(671, 443);
             this.phongdodoikhach.Name = "phongdodoikhach";
-            this.phongdodoikhach.Size = new System.Drawing.Size(372, 220);
+            this.phongdodoikhach.Size = new System.Drawing.Size(330, 220);
             this.phongdodoikhach.TabIndex = 5;
             // 
             // label1
@@ -150,22 +156,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(79, 414);
+            this.label2.Location = new System.Drawing.Point(44, 400);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 25);
+            this.label2.Size = new System.Drawing.Size(157, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Phong Độ Đội Nhà";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(472, 414);
+            this.label3.Location = new System.Drawing.Point(656, 400);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 25);
+            this.label3.Size = new System.Drawing.Size(175, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Phong Độ Đội Khách";
             // 
@@ -215,7 +221,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -226,7 +232,7 @@
             this.dataGridView1.DataSource = this.dbBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(0, 174);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(748, 221);
+            this.dataGridView1.Size = new System.Drawing.Size(748, 160);
             this.dataGridView1.TabIndex = 13;
             // 
             // matchDataGridViewTextBoxColumn
@@ -271,7 +277,7 @@
             // 
             // phongdodoinha
             // 
-            this.phongdodoinha.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.phongdodoinha.BackColor = System.Drawing.SystemColors.Window;
             this.phongdodoinha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.phongdodoinha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phongdodoinha.ForeColor = System.Drawing.Color.White;
@@ -279,8 +285,78 @@
             this.phongdodoinha.ItemHeight = 20;
             this.phongdodoinha.Location = new System.Drawing.Point(-1, 443);
             this.phongdodoinha.Name = "phongdodoinha";
-            this.phongdodoinha.Size = new System.Drawing.Size(372, 220);
+            this.phongdodoinha.Size = new System.Drawing.Size(330, 220);
             this.phongdodoinha.TabIndex = 14;
+            // 
+            // phongdosannha
+            // 
+            this.phongdosannha.BackColor = System.Drawing.SystemColors.Window;
+            this.phongdosannha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.phongdosannha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phongdosannha.ForeColor = System.Drawing.Color.White;
+            this.phongdosannha.FormattingEnabled = true;
+            this.phongdosannha.ItemHeight = 20;
+            this.phongdosannha.Location = new System.Drawing.Point(335, 443);
+            this.phongdosannha.Name = "phongdosannha";
+            this.phongdosannha.Size = new System.Drawing.Size(330, 220);
+            this.phongdosannha.TabIndex = 16;
+            // 
+            // phongdosankhach
+            // 
+            this.phongdosankhach.BackColor = System.Drawing.SystemColors.Window;
+            this.phongdosankhach.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.phongdosankhach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phongdosankhach.ForeColor = System.Drawing.Color.White;
+            this.phongdosankhach.FormattingEnabled = true;
+            this.phongdosankhach.ItemHeight = 20;
+            this.phongdosankhach.Location = new System.Drawing.Point(1007, 443);
+            this.phongdosankhach.Name = "phongdosankhach";
+            this.phongdosankhach.Size = new System.Drawing.Size(330, 220);
+            this.phongdosankhach.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Yellow;
+            this.label9.Location = new System.Drawing.Point(186, 364);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(113, 25);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Phong Độ ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Yellow;
+            this.label8.Location = new System.Drawing.Point(798, 364);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(113, 25);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Phong Độ ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Yellow;
+            this.label10.Location = new System.Drawing.Point(373, 400);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(162, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Phong Độ Sân Nhà";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Yellow;
+            this.label11.Location = new System.Drawing.Point(995, 400);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(180, 20);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Phong Độ Sân Khách";
             // 
             // Form2
             // 
@@ -288,7 +364,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(752, 667);
+            this.ClientSize = new System.Drawing.Size(1339, 667);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.phongdosankhach);
+            this.Controls.Add(this.phongdosannha);
             this.Controls.Add(this.phongdodoinha);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_info);
@@ -340,5 +422,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ListBox phongdodoinha;
+        private System.Windows.Forms.ListBox phongdosannha;
+        private System.Windows.Forms.ListBox phongdosankhach;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
