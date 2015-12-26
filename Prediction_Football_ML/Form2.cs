@@ -22,7 +22,7 @@ namespace Prediction_Football_ML
         LoadFixture load = new LoadFixture();
         LoadFixture DB = new LoadFixture();
         SqlConnection con;
-        SqlCommand cm1,cm2,cm3,cm4,cm5,cm6;
+        SqlCommand cm1,cm2,cm3,cm4,cm5,cm6,cm7;
         DataSet ds, ds1;
         SqlDataAdapter ap,ap1;
 
@@ -30,12 +30,15 @@ namespace Prediction_Football_ML
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'standingDataSet._BXH_' table. You can move, or remove it, as needed.
+            this.bXH_TableAdapter.Fill(this.standingDataSet._BXH_);
             // TODO: This line of code loads data into the 'ePLDataSet._db_' table. You can move, or remove it, as needed.
             this.db_TableAdapter.Fill(this.ePLDataSet._db_);
             this.LoadDBComboBox();
             //this.LoadDBListBox();
             cmb1.Text = "Chọn vòng đấu";
             dataGridView1.DataSource = null;
+            dataGridView2.DataSource = null;
             phongdodoinha.Text = phongdodoikhach.Text = "Vui lòng chọn 'Thông Tin Trận Đấu'";
         }
 
@@ -45,6 +48,7 @@ namespace Prediction_Football_ML
             con.Open();
         }
 
+        #region select round and match
         private void cmb1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string _select = this.cmb1.GetItemText(this.cmb1.SelectedItem);
@@ -59,8 +63,8 @@ namespace Prediction_Football_ML
             cmb2.DataSource = ds.Tables[0];
             cmb2.DisplayMember = "VS";
         }
+        #endregion
 
-        
         private void btn_dudoan_Click(object sender, EventArgs e)
         {
             string _select = this.cmb1.GetItemText(this.cmb1.SelectedItem);
@@ -92,6 +96,7 @@ namespace Prediction_Football_ML
 
         private void btn_info_Click(object sender, EventArgs e)
         {
+            HomeWin = 0; AwayWin = 0; Draw = 0;
             string _select = this.cmb1.GetItemText(this.cmb1.SelectedItem);
             string match = this.cmb2.GetItemText(this.cmb2.SelectedItem);
             try
@@ -100,21 +105,24 @@ namespace Prediction_Football_ML
                     MessageBox.Show("Vui Lòng Chọn Vòng Đấu Và Trận Đấu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
+                    #region get home name and away name
                     for (int i = 0; i < match.Length; i++)
                     {
                         if (match[i] == '-')
                         {
-                            Home = match.Substring(0, i );
+                            Home = match.Substring(0, i);
                             Away = match.Substring(i + 2, match.Length - i - 2);
                         }
                     }
-                    this.label9.Text += Home;
-                    this.label8.Text += Away;
+                    #endregion
+
+                    this.label9.Text = "Phong Độ " + Home;
+                    this.label8.Text = "Phong Độ " + Away;
 
                     this.label2.Text = "5 trận gần nhất";
                     this.label3.Text = "5 trận gần nhất";
 
-                    //MessageBox.Show(Away);
+                    #region thanh tich doi dau
                     cm2 = new SqlCommand("select * from [EPL].[dbo].[db$] where (HomeTeam=@hometeam and AwayTeam=@awayteam) or (HomeTeam=@awayteam and AwayTeam=@hometeam) ORDER BY Date DESC", con);
                     cm2.Parameters.Add("@hometeam", SqlDbType.NVarChar, -1);
                     cm2.Parameters.Add("@awayteam", SqlDbType.NVarChar, -1);
@@ -124,11 +132,12 @@ namespace Prediction_Football_ML
                     ds = new System.Data.DataSet();
                     ap.Fill(ds, "[EPL].[dbo].[db$]");
                     dataGridView1.DataSource = ds.Tables[0];
+                    dataGridView1.AllowUserToAddRows = false;
                     DataTable dt = ds.Tables[0];
+                    #endregion
+
                     double[] HomeGoals = new double[dt.Rows.Count];
                     double[] AwayGoals = new double[dt.Rows.Count];
-                    
-
                     int index = 0;
                     foreach (DataRow row in dt.Rows)
                     {
@@ -137,19 +146,24 @@ namespace Prediction_Football_ML
                         index++;
                     }
 
+                    #region phongdodoinha
                     this.phongdodoinha.BackColor = System.Drawing.SystemColors.Window;
                     this.phongdodoinha.ForeColor = System.Drawing.Color.Black;
-                    cm3 = new SqlCommand("select TOP 5 Result from [EPL].[dbo].[db$] where (HomeTeam=@hometeam or AwayTeam=@hometeam) ORDER BY Date DESC", con);
+                    
+                    cm3 = new SqlCommand("select TOP 5 HomeResult from [EPL].[dbo].[db$] where (HomeTeam=@hometeam or AwayTeam=@hometeam) ORDER BY Date DESC", con);
                     cm3.Parameters.Add("@hometeam", SqlDbType.NVarChar, -1);
                     cm3.Parameters["@hometeam"].Value = Home;
                     ap = new SqlDataAdapter(cm3);
                     ds = new System.Data.DataSet();
                     ap.Fill(ds, "[EPL].[dbo].[db$]");
                     phongdodoinha.DataSource = ds.Tables[0];
-                    phongdodoinha.DisplayMember = "Result";
+                    phongdodoinha.DisplayMember = "HomeResult";
+                    #endregion
 
+                    #region phongdodoikhach
                     this.phongdodoikhach.BackColor = System.Drawing.SystemColors.Window;
                     this.phongdodoikhach.ForeColor = System.Drawing.Color.Black;
+                    
                     cm4 = new SqlCommand("select TOP 5 Result from [EPL].[dbo].[db$] where (HomeTeam=@awayteam or AwayTeam=@awayteam) ORDER BY Date DESC", con);
                     cm4.Parameters.Add("@awayteam", SqlDbType.NVarChar, -1);
                     cm4.Parameters["@awayteam"].Value = Away;
@@ -158,8 +172,9 @@ namespace Prediction_Football_ML
                     ap.Fill(ds, "[EPL].[dbo].[db$]");
                     phongdodoikhach.DataSource = ds.Tables[0];
                     phongdodoikhach.DisplayMember = "Result";
+                    #endregion
 
-
+                    #region phong do doi nha san nha
                     this.phongdosannha.BackColor = System.Drawing.SystemColors.Window;
                     this.phongdosannha.ForeColor = System.Drawing.Color.Black;
                     cm5 = new SqlCommand("select TOP 5 Result from [EPL].[dbo].[db$] where HomeTeam=@hometeam ORDER BY Date DESC", con);
@@ -170,19 +185,22 @@ namespace Prediction_Football_ML
                     ap.Fill(ds, "[EPL].[dbo].[db$]");
                     phongdosannha.DataSource = ds.Tables[0];
                     phongdosannha.DisplayMember = "Result";
+                    #endregion
 
+                    #region phong do doi khach san khach
                     this.phongdosankhach.BackColor = System.Drawing.SystemColors.Window;
                     this.phongdosankhach.ForeColor = System.Drawing.Color.Black;
-                    cm6 = new SqlCommand("select TOP 5 Result from [EPL].[dbo].[db$] where AwayTeam=@awayteam ORDER BY Date DESC", con);
+                    cm6 = new SqlCommand("select TOP 5 AwayResult from [EPL].[dbo].[db$] where AwayTeam=@awayteam ORDER BY Date DESC", con);
                     cm6.Parameters.Add("@awayteam", SqlDbType.NVarChar, -1);
                     cm6.Parameters["@awayteam"].Value = Away;
                     ap = new SqlDataAdapter(cm6);
                     ds = new System.Data.DataSet();
                     ap.Fill(ds, "[EPL].[dbo].[db$]");
                     phongdosankhach.DataSource = ds.Tables[0];
-                    phongdosankhach.DisplayMember = "Result";
+                    phongdosankhach.DisplayMember = "AwayResult";
+                    #endregion
 
-
+                    #region du doan
                     for (int i = 0; i < index; i++)
                     {
                         if (HomeGoals[i] > AwayGoals[i]) HomeWin++;
@@ -193,12 +211,25 @@ namespace Prediction_Football_ML
                                 Draw++;
                         }
                     }
+                    #endregion
                 }
             }
+            #region ex
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            #endregion
+        }
+
+        private void btnBXH_Click(object sender, EventArgs e)
+        {
+            cm7 = new SqlCommand("select * from [Standing].[dbo].[BXH$]", con);
+            ap1 = new SqlDataAdapter(cm7);
+            ds1 = new System.Data.DataSet();
+            ap1.Fill(ds1, "[Standing].[dbo].[BXH$]");
+            dataGridView2.DataSource = ds1.Tables[0];
+            dataGridView2.AllowUserToAddRows = false;
         }
     }
 }
