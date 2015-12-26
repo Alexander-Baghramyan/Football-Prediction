@@ -22,7 +22,7 @@ namespace Prediction_Football_ML
         LoadFixture load = new LoadFixture();
         LoadFixture DB = new LoadFixture();
         SqlConnection con;
-        SqlCommand cm1,cm2,cm3,cm4,cm5,cm6,cm7;
+        SqlCommand cm1,cm2,cm3,cm4,cm5,cm6,cm7,cm8;
         DataSet ds, ds1;
         SqlDataAdapter ap,ap1;
 
@@ -92,11 +92,11 @@ namespace Prediction_Football_ML
 
 
         string Home = "", Away = "";
-        int HomeWin = 0, AwayWin = 0, Draw = 0;
+        int HomeWin = 0, AwayWin = 0, Draw = 0;//, Home_Pos = 0, Away_Pos = 0;
 
         private void btn_info_Click(object sender, EventArgs e)
         {
-            HomeWin = 0; AwayWin = 0; Draw = 0;
+            HomeWin = 0; AwayWin = 0; Draw = 0; //Home_Pos = 0; Away_Pos = 0;
             string _select = this.cmb1.GetItemText(this.cmb1.SelectedItem);
             string match = this.cmb2.GetItemText(this.cmb2.SelectedItem);
             try
@@ -138,11 +138,18 @@ namespace Prediction_Football_ML
 
                     double[] HomeGoals = new double[dt.Rows.Count];
                     double[] AwayGoals = new double[dt.Rows.Count];
+                    double[] BetHome = new double[dt.Rows.Count];
+                    double[] BetDraw = new double[dt.Rows.Count];
+                    double[] BetAway = new double[dt.Rows.Count];
+                    
                     int index = 0;
                     foreach (DataRow row in dt.Rows)
                     {
                         HomeGoals[index] = (double)row["FTHG"];
                         AwayGoals[index] = (double)row["FTAG"];
+                        BetHome[index] = (double)row["B365H"];
+                        BetDraw[index] = (double)row["B365D"];
+                        BetAway[index] = (double)row["B365A"];
                         index++;
                     }
 
@@ -200,7 +207,27 @@ namespace Prediction_Football_ML
                     phongdosankhach.DisplayMember = "AwayResult";
                     #endregion
 
+                    #region vi tri bxh
+                    cm7 = new SqlCommand("select Xephang from [Standing].[dbo].[BXH$] where (HomeTeam=@hometeam or AwayTeam=@awayteam)", con);
+                    cm7.Parameters.Add("@hometeam", SqlDbType.NVarChar, -1);
+                    cm7.Parameters.Add("@awayteam", SqlDbType.NVarChar, -1);
+                    cm7.Parameters["@hometeam"].Value = Home;
+                    cm7.Parameters["@awayteam"].Value = Away;
+                    ap = new SqlDataAdapter(cm7);
+                    ds = new System.Data.DataSet();
+                    ap.Fill(ds, "[Standing].[dbo].[BXH$]");
+                    DataTable dt1 = ds.Tables[0];
+
+                    int id=0;
+                    double[] Pos = new double[dt1.Rows.Count];
+                    foreach (DataRow row in dt1.Rows)
+                    {
+                        Pos[id++] = (double)row["Xephang"];
+                    }
+                    #endregion
+
                     #region du doan
+                    #region tieu chi thanh tich doi dau
                     for (int i = 0; i < index; i++)
                     {
                         if (HomeGoals[i] > AwayGoals[i]) HomeWin++;
@@ -211,6 +238,35 @@ namespace Prediction_Football_ML
                                 Draw++;
                         }
                     }
+                    #endregion
+
+                    #region tieu chi bang xep hang
+                    if (Math.Abs(Pos[0] - Pos[1]) <= 2)
+                    {
+                        HomeWin++;
+                        AwayWin++;
+                        Draw++;
+                    }
+                    else
+                    {
+                        if (Pos[0] > Pos[1])
+                        {
+                            HomeWin++;
+                        }
+                        else
+                            AwayWin++;
+                    }
+                    #endregion
+
+                    #region reset
+                    Array.Clear(HomeGoals, 0, index);
+                    Array.Clear(AwayGoals, 0, index);
+                    Array.Clear(BetHome, 0, index);
+                    Array.Clear(BetAway, 0, index);
+                    Array.Clear(BetDraw, 0, index);
+                    Array.Clear(Pos, 0, id);
+                    #endregion
+
                     #endregion
                 }
             }
@@ -224,8 +280,8 @@ namespace Prediction_Football_ML
 
         private void btnBXH_Click(object sender, EventArgs e)
         {
-            cm7 = new SqlCommand("select * from [Standing].[dbo].[BXH$]", con);
-            ap1 = new SqlDataAdapter(cm7);
+            cm8 = new SqlCommand("select * from [Standing].[dbo].[BXH$]", con);
+            ap1 = new SqlDataAdapter(cm8);
             ds1 = new System.Data.DataSet();
             ap1.Fill(ds1, "[Standing].[dbo].[BXH$]");
             dataGridView2.DataSource = ds1.Tables[0];
