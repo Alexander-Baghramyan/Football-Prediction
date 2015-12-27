@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StandingDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StandingDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StandingDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +122,17 @@
     <None Include="StandingDataSet.xss">
       <DependentUpon>StandingDataSet.xsd</DependentUpon>
     </None>
+    <None Include="StandingDataSet1.xsc">
+      <DependentUpon>StandingDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StandingDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StandingDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StandingDataSet1.xss">
+      <DependentUpon>StandingDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -135,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BG2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

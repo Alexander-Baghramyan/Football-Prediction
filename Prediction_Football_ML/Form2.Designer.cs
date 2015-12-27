@@ -57,24 +57,33 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.xephangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Thang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thuaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BanThang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.banThuaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bXHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.standingDataSet = new Prediction_Football_ML.StandingDataSet();
             this.bXH_TableAdapter = new Prediction_Football_ML.StandingDataSetTableAdapters.BXH_TableAdapter();
             this.btnBXH = new System.Windows.Forms.Button();
+            this.bXHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.standingDataSet1 = new Prediction_Football_ML.StandingDataSet1();
+            this.bXHBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.bXH_TableAdapter1 = new Prediction_Football_ML.StandingDataSet1TableAdapters.BXH_TableAdapter();
+            this.XepHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tran = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Thang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thuaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BanThang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.banThuaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HieuSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePLDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bXHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.standingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bXHBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.standingDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bXHBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // cmb1
@@ -162,6 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
             this.label1.Location = new System.Drawing.Point(258, 135);
@@ -173,6 +183,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(69, 400);
@@ -184,6 +195,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Yellow;
             this.label3.Location = new System.Drawing.Point(749, 400);
@@ -195,6 +207,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(6, 67);
@@ -206,6 +219,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(260, 66);
@@ -217,6 +231,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
             this.label6.Location = new System.Drawing.Point(42, 9);
@@ -338,6 +353,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Yellow;
             this.label9.Location = new System.Drawing.Point(211, 364);
@@ -349,6 +365,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Yellow;
             this.label8.Location = new System.Drawing.Point(891, 364);
@@ -360,6 +377,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Yellow;
             this.label10.Location = new System.Drawing.Point(421, 400);
@@ -371,6 +389,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Yellow;
             this.label11.Location = new System.Drawing.Point(1087, 400);
@@ -382,6 +401,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Yellow;
             this.label7.Location = new System.Drawing.Point(993, 9);
@@ -396,81 +416,21 @@
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.xephangDataGridViewTextBoxColumn,
+            this.XepHang,
             this.cLBDataGridViewTextBoxColumn,
+            this.Tran,
+            this.diemDataGridViewTextBoxColumn,
             this.Thang,
-            this.thuaDataGridViewTextBoxColumn,
             this.Hoa,
+            this.thuaDataGridViewTextBoxColumn,
             this.BanThang,
             this.banThuaDataGridViewTextBoxColumn,
-            this.diemDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.bXHBindingSource;
+            this.HieuSo});
+            this.dataGridView2.DataSource = this.bXHBindingSource2;
             this.dataGridView2.Location = new System.Drawing.Point(753, 46);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(586, 305);
             this.dataGridView2.TabIndex = 25;
-            // 
-            // xephangDataGridViewTextBoxColumn
-            // 
-            this.xephangDataGridViewTextBoxColumn.DataPropertyName = "Xephang";
-            this.xephangDataGridViewTextBoxColumn.HeaderText = "Hạng";
-            this.xephangDataGridViewTextBoxColumn.Name = "xephangDataGridViewTextBoxColumn";
-            this.xephangDataGridViewTextBoxColumn.ReadOnly = true;
-            this.xephangDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // cLBDataGridViewTextBoxColumn
-            // 
-            this.cLBDataGridViewTextBoxColumn.DataPropertyName = "CLB";
-            this.cLBDataGridViewTextBoxColumn.HeaderText = "CLB";
-            this.cLBDataGridViewTextBoxColumn.Name = "cLBDataGridViewTextBoxColumn";
-            this.cLBDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Thang
-            // 
-            this.Thang.DataPropertyName = "Thang";
-            this.Thang.HeaderText = "Thắng";
-            this.Thang.Name = "Thang";
-            this.Thang.ReadOnly = true;
-            this.Thang.Width = 50;
-            // 
-            // thuaDataGridViewTextBoxColumn
-            // 
-            this.thuaDataGridViewTextBoxColumn.DataPropertyName = "Thua";
-            this.thuaDataGridViewTextBoxColumn.HeaderText = "Thua";
-            this.thuaDataGridViewTextBoxColumn.Name = "thuaDataGridViewTextBoxColumn";
-            this.thuaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.thuaDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // Hoa
-            // 
-            this.Hoa.DataPropertyName = "Hoa";
-            this.Hoa.HeaderText = "Hòa";
-            this.Hoa.Name = "Hoa";
-            this.Hoa.ReadOnly = true;
-            this.Hoa.Width = 50;
-            // 
-            // BanThang
-            // 
-            this.BanThang.DataPropertyName = "BanThang";
-            this.BanThang.HeaderText = "Bàn Thắng";
-            this.BanThang.Name = "BanThang";
-            this.BanThang.ReadOnly = true;
-            // 
-            // banThuaDataGridViewTextBoxColumn
-            // 
-            this.banThuaDataGridViewTextBoxColumn.DataPropertyName = "BanThua";
-            this.banThuaDataGridViewTextBoxColumn.HeaderText = "Bàn Bại";
-            this.banThuaDataGridViewTextBoxColumn.Name = "banThuaDataGridViewTextBoxColumn";
-            this.banThuaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.banThuaDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // diemDataGridViewTextBoxColumn
-            // 
-            this.diemDataGridViewTextBoxColumn.DataPropertyName = "Diem";
-            this.diemDataGridViewTextBoxColumn.HeaderText = "Điểm";
-            this.diemDataGridViewTextBoxColumn.Name = "diemDataGridViewTextBoxColumn";
-            this.diemDataGridViewTextBoxColumn.ReadOnly = true;
-            this.diemDataGridViewTextBoxColumn.Width = 60;
             // 
             // bXHBindingSource
             // 
@@ -496,12 +456,106 @@
             this.btnBXH.UseVisualStyleBackColor = true;
             this.btnBXH.Click += new System.EventHandler(this.btnBXH_Click);
             // 
+            // bXHBindingSource1
+            // 
+            this.bXHBindingSource1.DataMember = "BXH$";
+            this.bXHBindingSource1.DataSource = this.standingDataSet;
+            // 
+            // standingDataSet1
+            // 
+            this.standingDataSet1.DataSetName = "StandingDataSet1";
+            this.standingDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bXHBindingSource2
+            // 
+            this.bXHBindingSource2.DataMember = "BXH$";
+            this.bXHBindingSource2.DataSource = this.standingDataSet1;
+            // 
+            // bXH_TableAdapter1
+            // 
+            this.bXH_TableAdapter1.ClearBeforeFill = true;
+            // 
+            // XepHang
+            // 
+            this.XepHang.DataPropertyName = "XepHang";
+            this.XepHang.HeaderText = "Hạng";
+            this.XepHang.Name = "XepHang";
+            this.XepHang.Width = 35;
+            // 
+            // cLBDataGridViewTextBoxColumn
+            // 
+            this.cLBDataGridViewTextBoxColumn.DataPropertyName = "CLB";
+            this.cLBDataGridViewTextBoxColumn.HeaderText = "CLB";
+            this.cLBDataGridViewTextBoxColumn.Name = "cLBDataGridViewTextBoxColumn";
+            this.cLBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Tran
+            // 
+            this.Tran.DataPropertyName = "Tran";
+            this.Tran.HeaderText = "Số Trận";
+            this.Tran.Name = "Tran";
+            this.Tran.Width = 68;
+            // 
+            // diemDataGridViewTextBoxColumn
+            // 
+            this.diemDataGridViewTextBoxColumn.DataPropertyName = "Diem";
+            this.diemDataGridViewTextBoxColumn.HeaderText = "Điểm";
+            this.diemDataGridViewTextBoxColumn.Name = "diemDataGridViewTextBoxColumn";
+            this.diemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.diemDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // Thang
+            // 
+            this.Thang.DataPropertyName = "Thang";
+            this.Thang.HeaderText = "Thắng";
+            this.Thang.Name = "Thang";
+            this.Thang.ReadOnly = true;
+            this.Thang.Width = 50;
+            // 
+            // Hoa
+            // 
+            this.Hoa.DataPropertyName = "Hoa";
+            this.Hoa.HeaderText = "Hòa";
+            this.Hoa.Name = "Hoa";
+            this.Hoa.ReadOnly = true;
+            this.Hoa.Width = 50;
+            // 
+            // thuaDataGridViewTextBoxColumn
+            // 
+            this.thuaDataGridViewTextBoxColumn.DataPropertyName = "Thua";
+            this.thuaDataGridViewTextBoxColumn.HeaderText = "Thua";
+            this.thuaDataGridViewTextBoxColumn.Name = "thuaDataGridViewTextBoxColumn";
+            this.thuaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.thuaDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // BanThang
+            // 
+            this.BanThang.DataPropertyName = "BanThang";
+            this.BanThang.HeaderText = "Bàn Thắng";
+            this.BanThang.Name = "BanThang";
+            this.BanThang.ReadOnly = true;
+            // 
+            // banThuaDataGridViewTextBoxColumn
+            // 
+            this.banThuaDataGridViewTextBoxColumn.DataPropertyName = "BanThua";
+            this.banThuaDataGridViewTextBoxColumn.HeaderText = "Bàn Bại";
+            this.banThuaDataGridViewTextBoxColumn.Name = "banThuaDataGridViewTextBoxColumn";
+            this.banThuaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.banThuaDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // HieuSo
+            // 
+            this.HieuSo.DataPropertyName = "HieuSo";
+            this.HieuSo.HeaderText = "Hiệu Số";
+            this.HieuSo.Name = "HieuSo";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1342, 667);
             this.Controls.Add(this.btnBXH);
             this.Controls.Add(this.dataGridView2);
@@ -525,6 +579,7 @@
             this.Controls.Add(this.btn_dudoan);
             this.Controls.Add(this.cmb2);
             this.Controls.Add(this.cmb1);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "Form2";
             this.ShowIcon = false;
@@ -536,6 +591,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bXHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.standingDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bXHBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.standingDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bXHBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,13 +639,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xephangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bXHBindingSource1;
+        private StandingDataSet1 standingDataSet1;
+        private System.Windows.Forms.BindingSource bXHBindingSource2;
+        private StandingDataSet1TableAdapters.BXH_TableAdapter bXH_TableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn XepHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tran;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thuaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thuaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BanThang;
         private System.Windows.Forms.DataGridViewTextBoxColumn banThuaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HieuSo;
     }
 }
