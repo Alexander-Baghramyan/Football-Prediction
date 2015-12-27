@@ -467,7 +467,7 @@ namespace Prediction_Football_ML
                             Random rd = new Random();
                             FTAG = rd.Next(0, avg_goal - FTHG);
                         }
-                        while ((FTAG > 0) || (FTAG >= FTHG) || (Math.Abs(FTAG - thuaTB_home) >= 3) || (Math.Abs(FTAG - thangTB_away) >= 3));
+                        while ((FTAG < 0) || (FTAG >= FTHG) || (Math.Abs(FTAG - thuaTB_home) >= 3) || (Math.Abs(FTAG - thangTB_away) >= 3));
 
                         MessageBox.Show(Home + "thắng " + Away + " " + FTHG.ToString() + " - " + FTAG.ToString());
                     }
@@ -485,9 +485,9 @@ namespace Prediction_Football_ML
                             do
                             {
                                 Random rd = new Random();
-                                FTHG = rd.Next(1, avg_goal - FTAG);
+                                FTHG = rd.Next(0, avg_goal - FTAG);
                             }
-                            while ((FTHG > 0) || (FTAG <= FTHG) || (Math.Abs(FTHG - thuaTB_away) >= 3) || (Math.Abs(FTHG - thangTB_home) >= 3));
+                            while ((FTHG < 0) || (FTAG <= FTHG) || (Math.Abs(FTHG - thuaTB_away) >= 3) || (Math.Abs(FTHG - thangTB_home) >= 3));
                             
                             MessageBox.Show(Home + "thua " + Away + " " + FTHG.ToString() + " - " + FTAG.ToString());
                         }
