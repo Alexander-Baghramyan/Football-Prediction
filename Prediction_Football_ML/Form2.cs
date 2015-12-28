@@ -70,9 +70,10 @@ namespace Prediction_Football_ML
         #region variales
         string Home = "", Away = "";
         int HomeWin = 0, AwayWin = 0, Draw = 0;//, Home_Pos = 0, Away_Pos = 0;
-        int avg_goal, avg_chap, l, m, u, v; // u: home chap, v: khach chap
-        int thangTB_home, thuaTB_home, thangTB_away, thuaTB_away;
-        int FTHG, FTAG; // full time home goal, full time away goal
+        int avg_goal =0 , l = 0 , m = 0, u = 0, v = 0; // u: home chap, v: khach chap
+        int thangTB_home = 0, thuaTB_home = 0, thangTB_away = 0, thuaTB_away = 0;
+        int FTHG = 0, FTAG = 0; // full time home goal, full time away goal
+        int sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
         #endregion
 
         private void btn_info_Click(object sender, EventArgs e)
@@ -96,6 +97,7 @@ namespace Prediction_Football_ML
                         {
                             Home = match.Substring(0, i);
                             Away = match.Substring(i + 2, match.Length - i - 2);
+                            break;
                         }
                     }
                     #endregion
@@ -120,6 +122,7 @@ namespace Prediction_Football_ML
                     DataTable dt = ds.Tables[0];
                     #endregion
 
+                    #region trich database
                     double[] HomeGoals = new double[dt.Rows.Count];
                     double[] AwayGoals = new double[dt.Rows.Count];
                     double[] BetHome = new double[dt.Rows.Count];
@@ -148,6 +151,7 @@ namespace Prediction_Football_ML
                         away_chap[index] = (double)row["BbMxAHA"];
                         index++;
                     }
+                    #endregion
 
                     #region phongdodoinha
 
@@ -341,9 +345,13 @@ namespace Prediction_Football_ML
                         _draw += BetDraw[i];
                         _away += BetAway[i];
                     }
-                    _home /= (double)index;
-                    _draw /= (double)index;
-                    _away /= (double)index;
+
+                    if (index != 0)
+                    {
+                        _home /= (double)index;
+                        _draw /= (double)index;
+                        _away /= (double)index;
+                    }
 
                     int temp = Math.Max((int)_home, Math.Max((int)_draw, (int)_away));
                     if (temp == _home)
@@ -367,14 +375,17 @@ namespace Prediction_Football_ML
                         sum_4 += _goalaway_2[i];
                     }
 
-                    sum_1 /= (double)index;
-                    int sum1 = (int)Math.Round(sum_1, 0);
-                    sum_2 /= (double)index;
-                    int sum2 = (int)Math.Round(sum_2, 0);
-                    sum_3 /= (double)index;
-                    int sum3 = (int)Math.Round(sum_3, 0);
-                    sum_4 /= (double)index;
-                    int sum4 = (int)Math.Round(sum_4, 0);
+                    if (index != 0)
+                    {
+                        sum_1 /= (double)index;
+                        sum1 = (int)Math.Round(sum_1, 0);
+                        sum_2 /= (double)index;
+                        sum2 = (int)Math.Round(sum_2, 0);
+                        sum_3 /= (double)index;
+                        sum3 = (int)Math.Round(sum_3, 0);
+                        sum_4 /= (double)index;
+                        sum4 = (int)Math.Round(sum_4, 0);
+                    }
 
                     l = Math.Max(sum1, sum2);
                     m = Math.Max(sum3, sum4);
@@ -389,11 +400,14 @@ namespace Prediction_Football_ML
                         chap_away += away_chap[i];
                     }
 
-                    chap_home /= (double)index;
-                    u = (int)Math.Round(chap_home, 0);
+                    if (index != 0)
+                    {
+                        chap_home /= (double)index;
+                        u = (int)Math.Round(chap_home, 0);
 
-                    chap_away /= (double)index;
-                    v = (int)Math.Round(chap_away, 0);
+                        chap_away /= (double)index;
+                        v = (int)Math.Round(chap_away, 0);
+                    }
                     #endregion
 
                     #region tieu chi ban thang trung binh
@@ -458,14 +472,14 @@ namespace Prediction_Football_ML
                         do
                         {
                             Random rd = new Random();
-                            FTHG = rd.Next(1, avg_goal);
+                            FTHG = rd.Next(1, avg_goal + v);
                         }
                         while ((Math.Abs(FTHG-thangTB_home) >= 3) || (Math.Abs(FTHG-thuaTB_away) >= 3));
 
                         do
                         {
                             Random rd = new Random();
-                            FTAG = rd.Next(0, avg_goal - FTHG);
+                            FTAG = rd.Next(0, avg_goal - FTHG + u);
                         }
                         while ((FTAG < 0) || (FTAG >= FTHG) || (Math.Abs(FTAG - thuaTB_home) >= 3) || (Math.Abs(FTAG - thangTB_away) >= 3));
 
@@ -478,14 +492,14 @@ namespace Prediction_Football_ML
                             do
                             {
                                 Random rd = new Random();
-                                FTAG = rd.Next(1, avg_goal);
+                                FTAG = rd.Next(1, avg_goal + u);
                             }
                             while ((Math.Abs(FTAG - thangTB_away) >= 3) || (Math.Abs(FTAG - thuaTB_home) >= 3));
 
                             do
                             {
                                 Random rd = new Random();
-                                FTHG = rd.Next(0, avg_goal - FTAG);
+                                FTHG = rd.Next(0, avg_goal - FTAG + v);
                             }
                             while ((FTHG < 0) || (FTAG <= FTHG) || (Math.Abs(FTHG - thuaTB_away) >= 3) || (Math.Abs(FTHG - thangTB_home) >= 3));
                             
@@ -493,8 +507,13 @@ namespace Prediction_Football_ML
                         }
                         else
                         {
-                            Random rd = new Random();
-                            FTHG = rd.Next(1, avg_goal);
+                            do
+                            {
+                                Random rd = new Random();
+                                if (v == 0) v = 1;
+                                FTHG = rd.Next(0, avg_goal + u / v);
+                            }
+                            while ((FTHG - thangTB_home >= 3) || (Math.Abs(FTHG - thuaTB_away) >= 3));
                             MessageBox.Show(Home + "hòa " + Away + " " + FTHG.ToString()+ " - " +FTHG.ToString());
                         }
                     }

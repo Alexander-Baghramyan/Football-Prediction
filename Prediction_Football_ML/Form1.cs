@@ -21,7 +21,7 @@ namespace Prediction_Football_ML
         {
             Form2 giaodien = new Form2();
             giaodien.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e) // exit
